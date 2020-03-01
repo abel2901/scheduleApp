@@ -1,6 +1,8 @@
 package com.example.myapplication.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -9,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 import com.example.myapplication.ui.dao.StudentDao;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +27,15 @@ public class StudentListActivity extends AppCompatActivity {
         StudentDao dao = new StudentDao();
 
         setTitle("Student List");
+
+        FloatingActionButton newStudent = findViewById(R.id.floatingActionButton);
+        newStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StudentListActivity.this, StudentFormActivity.class));
+            }
+        });
+
         List<String> students = new ArrayList<>(
                 Arrays.asList("Alex", "Fran", "Jose"));
         ListView studentList = findViewById(R.id.activity_main_student_list_listview);
