@@ -24,8 +24,6 @@ public class StudentListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_list);
 
-        StudentDao dao = new StudentDao();
-
         setTitle("Student List");
 
         FloatingActionButton newStudent = findViewById(R.id.floatingActionButton);
@@ -35,11 +33,15 @@ public class StudentListActivity extends AppCompatActivity {
                 startActivity(new Intent(StudentListActivity.this, StudentFormActivity.class));
             }
         });
+    }
 
-        List<String> students = new ArrayList<>(
-                Arrays.asList("Alex", "Fran", "Jose"));
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        StudentDao dao = new StudentDao();
+
         ListView studentList = findViewById(R.id.activity_main_student_list_listview);
         studentList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dao.all()));
-
     }
 }

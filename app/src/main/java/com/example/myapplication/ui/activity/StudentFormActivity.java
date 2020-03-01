@@ -37,7 +37,7 @@ public class StudentFormActivity extends AppCompatActivity {
                 Student createStudent = new Student(name, phone, email);
                 dao.save(createStudent);
 
-                startActivity(new Intent(StudentFormActivity.this, StudentListActivity.class));
+                finish();
             }
         });
     }
