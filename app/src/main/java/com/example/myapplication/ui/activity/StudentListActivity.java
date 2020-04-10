@@ -13,10 +13,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.ui.dao.StudentDao;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class StudentListActivity extends AppCompatActivity {
 
     @Override
