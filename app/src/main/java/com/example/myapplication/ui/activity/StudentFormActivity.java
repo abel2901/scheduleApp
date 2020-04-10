@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.ui.dao.StudentDao;
 import com.example.myapplication.ui.model.Student;
+
+import java.io.Serializable;
 
 public class StudentFormActivity extends AppCompatActivity {
 
@@ -36,6 +39,12 @@ public class StudentFormActivity extends AppCompatActivity {
                 save(createStudent);
             }
         });
+
+        Intent datas = getIntent();
+        Student student = (Student) datas.getSerializableExtra("student");
+        nameInput.setText(student.getName());
+        phoneInput.setText(student.getPhone());
+        emailInput.setText(student.getEmail());
     }
 
     private void initializeInputs() {

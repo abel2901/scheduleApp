@@ -1,6 +1,8 @@
 package com.example.myapplication.ui.model;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
 
     private final String name;
     private final String email;
@@ -10,6 +12,18 @@ public class Student {
         this.name = name;
         this.phone = phone;
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     @Override
