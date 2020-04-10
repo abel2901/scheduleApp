@@ -38,7 +38,10 @@ public class StudentListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        setupList();
+    }
 
+    private void setupList() {
         StudentDao dao = new StudentDao();
 
         ListView studentList = findViewById(R.id.activity_main_student_list_listview);
